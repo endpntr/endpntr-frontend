@@ -1,5 +1,5 @@
 import axios from "axios";
-const PATH = "/req";
+const PATH = "/api/req";
 
 async function get(endpointHash, requestHash) {
   const response = await axios.get(`${PATH}/${endpointHash}/${requestHash}`);

@@ -1,10 +1,13 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import PayloadService from "../services/payload";
 import RequestService from "../services/request";
 
 const TEST_ENDPOINT = "super-gobbler-robust";
 
 function RequestList({ requestList, setRequestList, setPayload }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,16 +24,7 @@ function RequestList({ requestList, setRequestList, setPayload }) {
   // The rest of your component logic
 
   const handleRequestClick = async (req) => {
-    try {
-      const result = await PayloadService.get(
-        req.endpoint_hash,
-        req.request_hash,
-      );
-      console.log(result);
-      setPayload(result);
-    } catch (error) {
-      console.error("Something went wrong");
-    }
+    navigate(`/${req.endpoint_hash}/${req.request_hash}`);
   };
 
   return (
