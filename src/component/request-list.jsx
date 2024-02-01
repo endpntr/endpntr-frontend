@@ -1,35 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import PayloadService from "../services/payload";
+import RequestService from "../services/request";
+
+const TEST_ENDPOINT = "super-gobbler-robust";
 
 function RequestList({ requestList, setRequestList, setPayload }) {
-  useEffect(
-    () =>
-      setRequestList([
-        // result.rows
-        {
-          hash: "asdffasfsadf",
-          path: "/",
-          method: "POST",
-          timestamp: "00:12:12",
-          document_id: 1,
-        },
-        {
-          hash: "asdfasfsadf",
-          path: "/",
-          method: "POST",
-          timestamp: "00:12:12",
-          document_id: 2,
-        },
-        {
-          hash: "asdfasff",
-          path: "/",
-          method: "POST",
-          timestamp: "00:12:12",
-          document_id: 3,
-        },
-      ]),
-    [setRequestList],
-  );
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await RequestService.getAll(TEST_ENDPOINT);
+        setRequestList(result);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [setRequestList]);
+
+  // The rest of your component logic
 
   const handleRequestClick = async (req) => {
     try {
@@ -47,8 +36,8 @@ function RequestList({ requestList, setRequestList, setPayload }) {
           <ul>
             {requestList.map((req) => {
               return (
-                <li onClick={() => console.log("hello")} key={req.hash}>
-                  {req.method} {req.path} {req.timestamp}
+                <li onClick={() => console.log("hello")} key={req.request_id}>
+                  {req.http_method} {req.http_path} {req.received_at}
                 </li>
               );
             })}
