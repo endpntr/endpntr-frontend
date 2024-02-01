@@ -22,7 +22,11 @@ function RequestList({ requestList, setRequestList, setPayload }) {
 
   const handleRequestClick = async (req) => {
     try {
-      const result = PayloadService.get(req.document_id);
+      const result = await PayloadService.get(
+        req.endpoint_hash,
+        req.request_hash,
+      );
+      console.log(result);
       setPayload(result);
     } catch (error) {
       console.error("Something went wrong");
@@ -36,7 +40,10 @@ function RequestList({ requestList, setRequestList, setPayload }) {
           <ul>
             {requestList.map((req) => {
               return (
-                <li onClick={() => console.log("hello")} key={req.request_id}>
+                <li
+                  onClick={() => handleRequestClick(req)}
+                  key={req.request_id}
+                >
                   {req.http_method} {req.http_path} {req.received_at}
                 </li>
               );
