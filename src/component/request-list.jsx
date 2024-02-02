@@ -29,8 +29,8 @@ function RequestList({ requestList, setRequestList }) {
   return (
     <>
       <div>
-        <div id="request-list">
-          <ul>
+        <div>
+          <ul className="flex flex1 justify-left">
             {requestList.length < 1 ? (
               <p>No requests yet!</p>
             ) : (

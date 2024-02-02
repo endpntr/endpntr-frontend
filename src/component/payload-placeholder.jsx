@@ -4,7 +4,7 @@ function PayloadPlaceholder() {
   const { endpointHash } = useParams();
   return (
     <div>
-      <h2>Send requests to {endpointHash}</h2>
+      <h2>Send requests to https://endpntr/api/req/{endpointHash}</h2>
     </div>
   );
 }

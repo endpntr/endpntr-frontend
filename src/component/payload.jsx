@@ -12,7 +12,6 @@ function Payload() {
     const fetchPayload = async () => {
       try {
         const result = await PayloadService.get(endpointHash, requestHash);
-        console.log(result);
         setPayload(result);
       } catch (error) {
         console.error(error);
