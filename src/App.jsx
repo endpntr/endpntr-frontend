@@ -4,8 +4,8 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
   useParams,
+  useNavigate,
 } from "react-router-dom";
 import LandingPage from "./component/landing-page";
 import RequestList from "./component/request-list";
@@ -15,6 +15,7 @@ import NewEndpointBtn from "./component/new-endpoint";
 
 function MainContent({ PayloadType, requestList, setRequestList }) {
   const { endpointHash } = useParams();
+  const navigate = useNavigate();
 
   const copyToClipboard = async (text) => {
     try {
@@ -27,7 +28,10 @@ function MainContent({ PayloadType, requestList, setRequestList }) {
   return (
     <div className="h-full">
       <div className="flex justify-between w-full py-3 px-2 sm:px-6 lg:px-8 border-0 border-gray-200 dark:border-gray-800">
-        <div className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
+        <div
+          className="text-2xl font-semibold text-gray-900 dark:text-gray-100 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           endpntr.
         </div>
         <div></div>
