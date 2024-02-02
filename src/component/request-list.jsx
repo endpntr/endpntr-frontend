@@ -34,7 +34,7 @@ function RequestList({ requestList, setRequestList }) {
               <li
                 onClick={() => handleRequestClick(req)}
                 key={req.request_id}
-                className="bg-gray-700 hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition duration-300"
+                className="bg-gray-700 hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition duration-100"
               >
                 <span className="text-purple-400 font-bold">
                   {req.http_method}
