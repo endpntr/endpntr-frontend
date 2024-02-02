@@ -20,35 +20,33 @@ function RequestList({ requestList, setRequestList }) {
     fetchData();
   }, [setRequestList, endpointHash]);
 
-  // The rest of your component logic
-
   const handleRequestClick = async (req) => {
     navigate(`/${req.endpoint_hash}/${req.request_hash}`);
   };
 
   return (
-    <>
+    <div>
       <div>
-        <div>
-          <ul className="flex flex1 justify-left">
-            {requestList.length < 1 ? (
-              <p>No requests yet!</p>
-            ) : (
-              requestList.map((req) => {
-                return (
-                  <li
-                    onClick={() => handleRequestClick(req)}
-                    key={req.request_id}
-                  >
-                    {req.http_method} {req.http_path} {req.received_at}
-                  </li>
-                );
-              })
-            )}
-          </ul>
-        </div>
+        <ul className="list-none p-0">
+          {requestList.length < 1 ? (
+            <p className="text-gray-500">No requests yet!</p>
+          ) : (
+            requestList.map((req) => (
+              <li
+                onClick={() => handleRequestClick(req)}
+                key={req.request_id}
+                className="bg-gray-700 hover:bg-gray-800 cursor-pointer p-2 my-2 rounded transition duration-300"
+              >
+                <span className="text-purple-400 font-bold">
+                  {req.http_method}
+                </span>{" "}
+                {req.http_path} {req.received_at}
+              </li>
+            ))
+          )}
+        </ul>
       </div>
-    </>
+    </div>
   );
 }
 

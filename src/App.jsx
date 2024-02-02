@@ -17,14 +17,22 @@ function App() {
         <Route
           path="/:endpointHash"
           element={
-            <>
-              <RequestList
-                requestList={requestList}
-                setRequestList={setRequestList}
-              />
-              <PayloadPlaceholder />
-              <NewEndpointBtn />
-            </>
+            <div>
+              <div className="flex justify-end">
+                <NewEndpointBtn />
+              </div>
+              <div className="grid grid-cols-3">
+                <div className="col-span-1">
+                  <RequestList
+                    requestList={requestList}
+                    setRequestList={setRequestList}
+                  />
+                </div>{" "}
+                <div className="col-span-2 place-self-center p-20 border-double border-4 border-gray-700">
+                  <PayloadPlaceholder />
+                </div>
+              </div>
+            </div>
           }
         />
         <Route
@@ -35,6 +43,7 @@ function App() {
                 requestList={requestList}
                 setRequestList={setRequestList}
               />
+              <NewEndpointBtn />
               <Payload />
             </>
           }
