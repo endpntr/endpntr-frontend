@@ -7,6 +7,28 @@ import Payload from "./component/payload";
 import PayloadPlaceholder from "./component/payload-placeholder";
 import NewEndpointBtn from "./component/new-endpoint";
 
+function MainContent({ PayloadType, requestList, setRequestList }) {
+  return (
+    <div className="h-full">
+      <div className="flex justify-between">
+        <div className="text-2xl">endpntr</div>
+        <NewEndpointBtn />
+      </div>
+      <div className="grid grid-cols-3 grid-rows-1 h-full">
+        <div className="col-span-1 border-double border-4 border-gray-700 p-3 overflow-auto">
+          <RequestList
+            requestList={requestList}
+            setRequestList={setRequestList}
+          />
+        </div>
+        <div className="w-full h-full col-span-2 border-double border-4 border-gray-700 overflow-auto p-4">
+          <PayloadType />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [requestList, setRequestList] = useState([]);
 
@@ -17,35 +39,21 @@ function App() {
         <Route
           path="/:endpointHash"
           element={
-            <div>
-              <div className="flex justify-end">
-                <NewEndpointBtn />
-              </div>
-              <div className="grid grid-cols-3">
-                <div className="col-span-1">
-                  <RequestList
-                    requestList={requestList}
-                    setRequestList={setRequestList}
-                  />
-                </div>{" "}
-                <div className="col-span-2 place-self-center p-20 border-double border-4 border-gray-700">
-                  <PayloadPlaceholder />
-                </div>
-              </div>
-            </div>
+            <MainContent
+              PayloadType={PayloadPlaceholder}
+              requestList={requestList}
+              setRequestList={setRequestList}
+            />
           }
         />
         <Route
           path="/:endpointHash/:requestHash"
           element={
-            <>
-              <RequestList
-                requestList={requestList}
-                setRequestList={setRequestList}
-              />
-              <NewEndpointBtn />
-              <Payload />
-            </>
+            <MainContent
+              PayloadType={Payload}
+              requestList={requestList}
+              setRequestList={setRequestList}
+            />
           }
         />
       </Routes>
