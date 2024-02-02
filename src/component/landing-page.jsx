@@ -4,7 +4,7 @@ import NewEndpointBtn from "./new-endpoint";
 export default function Component() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-900">
-      <header className="w-full py-3 px-2 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800">
+      <header className="w-full py-5 px-2 sm:px-6 lg:px-8 border-b border-gray-200 dark:border-gray-800">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
             endpntr.
