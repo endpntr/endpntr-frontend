@@ -12,7 +12,14 @@ function NewEndpointBtn() {
       console.error(error);
     }
   };
-  return <button onClick={handleNewEndpoint}>New Endpoint</button>;
+  return (
+    <button
+      className="rounded-md border border-transparent p-2 text-base font-semibold bg-gray-800 cursor-pointer transition duration-250 hover:border-gray-500 hover:bg-gray-900"
+      onClick={handleNewEndpoint}
+    >
+      New Endpoint
+    </button>
+  );
 }
 
 export default NewEndpointBtn;

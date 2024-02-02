@@ -3,13 +3,19 @@ import { useParams } from "react-router-dom";
 function PayloadPlaceholder() {
   const { endpointHash } = useParams();
   return (
-    <div className="text-center text-2xl m-3">
-      <h2>
-        Send requests to{" "}
-        <span className="bg-black p-2 rounded-lg">
-          https://endpntr.com/api/req/{endpointHash}
-        </span>
-      </h2>
+    <div className="text-left text-l m-3">
+      <pre className="text-gray-500">
+        {JSON.stringify(
+          {
+            example: {
+              headers: { "Content-Type": "application/json" },
+              body: { stuff: "stuff" },
+            },
+          },
+          null,
+          2,
+        )}
+      </pre>
     </div>
   );
 }
