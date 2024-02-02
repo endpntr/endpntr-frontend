@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import LandingPage from "./component/landing-page";
 import RequestList from "./component/request-list";
 import Payload from "./component/payload";
+import PayloadPlaceholder from "./component/payload-placeholder";
+import NewEndpointBtn from "./component/new-endpoint";
 
 function App() {
   const [requestList, setRequestList] = useState([]);
@@ -15,10 +17,14 @@ function App() {
         <Route
           path="/:endpointHash"
           element={
-            <RequestList
-              requestList={requestList}
-              setRequestList={setRequestList}
-            />
+            <>
+              <RequestList
+                requestList={requestList}
+                setRequestList={setRequestList}
+              />
+              <PayloadPlaceholder />
+              <NewEndpointBtn />
+            </>
           }
         />
         <Route
