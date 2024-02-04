@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PATH = "/api/req";
+const PATH = "/api";
 
 async function getAll(endpointHash) {
   const result = await axios.get(PATH + "/" + endpointHash);
