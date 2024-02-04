@@ -19,7 +19,7 @@ function Toolbar({ endpointHash }) {
         >
           Copy
         </div>
-        <span className="inline-block bg-white text-gray-900 p-2">
+        <span className="inline-block bg-white text-gray-900 p-2 md:w-fit w-4/5">
           https://endpntr.com/api/req/{endpointHash}
         </span>
       </div>
