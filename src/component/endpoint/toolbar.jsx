@@ -15,7 +15,9 @@ function Toolbar({ endpointHash }) {
       <div>
         <div
           className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
-          onClick={() => copyToClipboard(`https://endpntr.com/${endpointHash}`)}
+          onClick={() =>
+            copyToClipboard(`https://endpntr.com/api/req/${endpointHash}`)
+          }
         >
           Copy
         </div>
