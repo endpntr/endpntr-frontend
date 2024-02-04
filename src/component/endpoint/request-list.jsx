@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import RequestService from "../services/request";
+import RequestService from "../../services/request";
 
 function RequestList({ requestList, setRequestList }) {
   const navigate = useNavigate();

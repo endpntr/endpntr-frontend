@@ -1,15 +1,12 @@
-import { useParams } from "react-router-dom";
-
 function PayloadPlaceholder() {
-  const { endpointHash } = useParams();
   return (
     <div className="text-left text-l m-3">
       <pre className="text-gray-500">
         {JSON.stringify(
           {
-            example: {
+            payload: {
               headers: { "Content-Type": "application/json" },
-              body: { stuff: "stuff" },
+              body: { desc: "Will be rendered here!" },
             },
           },
           null,

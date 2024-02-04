@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PayloadBody from "./payload-body";
 import PayloadHeaders from "./payload-headers";
-import PayloadService from "../services/payload";
+import PayloadService from "../../services/payload";
 
 function Payload() {
   const [payload, setPayload] = useState({});

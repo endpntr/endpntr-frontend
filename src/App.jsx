@@ -1,69 +1,9 @@
 import { useState } from "react";
-import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-  useNavigate,
-} from "react-router-dom";
-import LandingPage from "./component/landing-page";
-import RequestList from "./component/request-list";
-import Payload from "./component/payload";
-import PayloadPlaceholder from "./component/payload-placeholder";
-import NewEndpointBtn from "./component/new-endpoint";
-
-function MainContent({ PayloadType, requestList, setRequestList }) {
-  const { endpointHash } = useParams();
-  const navigate = useNavigate();
-
-  const copyToClipboard = async (text) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      alert(`${text} copied to clipboard`);
-    } catch (error) {
-      alert("Error: Could not copy to clipboard");
-    }
-  };
-  return (
-    <div className="h-full">
-      <div className="flex justify-between w-full py-5 px-2 sm:px-6 lg:px-8 border-0 border-gray-200 dark:border-gray-800">
-        <div
-          className="text-2xl font-semibold text-gray-900 dark:text-gray-100 cursor-pointer"
-          onClick={() => navigate("/")}
-        >
-          endpntr.
-        </div>
-        <div></div>
-        <div>
-          <div
-            className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
-            onClick={() =>
-              copyToClipboard(`https://endpntr.com/${endpointHash}`)
-            }
-          >
-            Copy
-          </div>
-          <span className="inline-block bg-white text-gray-900 p-2">
-            https://endpntr.com/api/req/{endpointHash}
-          </span>
-        </div>
-        <NewEndpointBtn />
-      </div>
-      <div className="grid grid-cols-3 gap-5 grid-rows-1 h-4/5 mx-7">
-        <div className="col-span-1 border-single border border-gray-500 rounded-sm p-3 overflow-auto shadow-2xl bg-gray-800">
-          <RequestList
-            requestList={requestList}
-            setRequestList={setRequestList}
-          />
-        </div>
-        <div className="w-full h-full col-span-2 border-single border border-gray-500 rounded-sm overflow-auto shadow-2xl p-6 bg-gray-800">
-          <PayloadType />
-        </div>
-      </div>
-    </div>
-  );
-}
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Payload from "./component/endpoint/payload";
+import PayloadPlaceholder from "./component/endpoint/payload-placeholder";
+import Endpoint from "./component/endpoint/endpoint";
+import LandingPage from "./component/landing/landing-page";
 
 function App() {
   const [requestList, setRequestList] = useState([]);
@@ -75,7 +15,7 @@ function App() {
         <Route
           path="/:endpointHash"
           element={
-            <MainContent
+            <Endpoint
               PayloadType={PayloadPlaceholder}
               requestList={requestList}
               setRequestList={setRequestList}
@@ -85,7 +25,7 @@ function App() {
         <Route
           path="/:endpointHash/:requestHash"
           element={
-            <MainContent
+            <Endpoint
               PayloadType={Payload}
               requestList={requestList}
               setRequestList={setRequestList}
