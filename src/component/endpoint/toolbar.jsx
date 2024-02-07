@@ -1,6 +1,9 @@
 import NewEndpointBtn from "../general/new-endpoint";
 
 function Toolbar({ endpointHash }) {
+  const { hostname, protocol, port } = window.location;
+  const endpointURL = `${protocol}//${hostname}${port ? `:${port}` : ""}/api/req/${endpointHash}`;
+
   const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -15,14 +18,12 @@ function Toolbar({ endpointHash }) {
       <div>
         <div
           className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
-          onClick={() =>
-            copyToClipboard(`https://endpntr.com/api/req/${endpointHash}`)
-          }
+          onClick={() => copyToClipboard(endpointURL)}
         >
           Copy
         </div>
         <span className="inline-block bg-white text-gray-900 p-2 md:w-fit w-4/5">
-          https://endpntr.com/api/req/{endpointHash}
+          {endpointURL}
         </span>
       </div>
       <NewEndpointBtn />
