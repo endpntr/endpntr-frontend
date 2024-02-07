@@ -4,7 +4,7 @@ import Header from "../general/header";
 import Footer from "../general/footer";
 import Toolbar from "./toolbar";
 
-function Endpoint({ PayloadType, requestList, setRequestList }) {
+function Endpoint({ PayloadType }) {
   const { endpointHash } = useParams();
 
   return (
@@ -14,10 +14,7 @@ function Endpoint({ PayloadType, requestList, setRequestList }) {
         <Toolbar endpointHash={endpointHash} />
         <div className="grid grid-cols-1 grid-rows-2 xl:grid-rows-1 xl:grid-cols-3 gap-8 h-4/5 mx-7">
           <div className="col-span-1 border-single border border-gray-500 rounded-sm p-3 overflow-auto shadow-2xl bg-gray-800">
-            <RequestList
-              requestList={requestList}
-              setRequestList={setRequestList}
-            />
+            <RequestList />
           </div>
           <div className="w-full h-full col-span-1 xl:col-span-2 border-single border border-gray-500 rounded-sm overflow-auto shadow-2xl p-6 bg-gray-800">
             <PayloadType />

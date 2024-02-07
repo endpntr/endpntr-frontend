@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import RequestService from "../../services/request";
 
-function RequestList({ requestList, setRequestList }) {
+function RequestList() {
   const navigate = useNavigate();
   const { endpointHash } = useParams();
+  const [requestList, setRequestList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
