@@ -14,19 +14,22 @@ function Toolbar({ endpointHash }) {
   };
 
   return (
-    <div className="flex justify-end gap-5 flex-col md:flex-row py-5 px-8 border-0 border-gray-200 dark:border-gray-800">
-      <div>
-        <div
-          className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
-          onClick={() => copyToClipboard(endpointURL)}
-        >
-          Copy
+    <div className="flex lg:flex-row flex-col gap-5 justify-between py-5 w-full">
+      <h2 className="place-self-center text-xl">Dashboard</h2>
+      <div className="flex justify-end gap-5 flex-col md:flex-row border-0 border-gray-200 dark:border-gray-800">
+        <div>
+          <div
+            className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
+            onClick={() => copyToClipboard(endpointURL)}
+          >
+            <button className="focus:outline-none">Copy</button>
+          </div>
+          <span className="inline-block bg-white text-gray-900 p-2 md:w-fit w-4/5">
+            {endpointURL}
+          </span>
         </div>
-        <span className="inline-block bg-white text-gray-900 p-2 md:w-fit w-4/5">
-          {endpointURL}
-        </span>
+        <NewEndpointBtn />
       </div>
-      <NewEndpointBtn />
     </div>
   );
 }
