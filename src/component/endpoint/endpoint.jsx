@@ -8,10 +8,10 @@ function Endpoint({ PayloadType }) {
   const { endpointHash } = useParams();
 
   return (
-    <div className="flex flex-col h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="flex flex-col justify-between h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
-      <main className="my-14 xl:mx-16 px-16 sm:mx-4 sm:-px-4 sm:py-4 h-4/5">
-        <div className="h-full w-full flex flex-col place-items-center">
+      <main className="py-14 h-4/5 w-4/5 m-auto">
+        <div className="h-full w-full flex flex-col items-center justify-center">
           <Toolbar endpointHash={endpointHash} />
           <div className="grid grid-cols-1 grid-rows-2 xl:grid-rows-1 xl:grid-cols-3 gap-8 h-4/5 mx-7 w-full">
             <div className="col-span-1 border-single border border-gray-500 rounded-sm p-3 overflow-auto shadow-2xl bg-gray-800">
