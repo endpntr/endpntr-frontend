@@ -51,8 +51,15 @@ function RequestList() {
             key={req.request_id}
             className="bg-gray-700 hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition duration-100"
           >
-            <span className="text-purple-400 font-bold">{req.http_method}</span>{" "}
-            {req.http_path} {req.received_at}
+            <div className="flex flex-1 justify-between">
+              <p>
+                <span className="text-purple-400 font-bold">
+                  {req.http_method}
+                </span>{" "}
+                {req.http_path}
+              </p>
+              <p>{new Date(req.received_at).toISOString()}</p>
+            </div>
           </li>
         ))
       )}
