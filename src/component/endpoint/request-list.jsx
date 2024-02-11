@@ -17,8 +17,24 @@ function RequestList() {
       }
     };
 
-    fetchData();
-  }, [setRequestList, endpointHash]);
+    fetchData(); // Fetch data on mount
+
+    const { hostname, port } = window.location;
+    const wsURL = `ws://${hostname}${port ? `:${port}` : ""}/subscribe/${endpointHash}`;
+
+    const socket = new WebSocket(wsURL);
+
+    socket.addEventListener("message", (event) => {
+      const { newRequestsAvailable } = JSON.parse(event.data);
+      if (newRequestsAvailable) {
+        fetchData();
+      }
+    });
+
+    return () => {
+      socket.close(); // Clean up WebSocket connection on unmount
+    };
+  }, [endpointHash]);
 
   const handleRequestClick = async (req) => {
     navigate(`/${req.endpoint_hash}/${req.request_hash}`);
