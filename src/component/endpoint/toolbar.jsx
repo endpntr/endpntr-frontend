@@ -1,3 +1,4 @@
+import { ScaleLoader } from "react-spinners";
 import NewEndpointBtn from "../general/new-endpoint";
 
 function Toolbar({ endpointHash }) {
@@ -15,7 +16,10 @@ function Toolbar({ endpointHash }) {
 
   return (
     <div className="flex lg:flex-row flex-col gap-5 justify-between py-5 w-full">
-      <h2 className="place-self-center text-xl">Dashboard</h2>
+      <div className="flex gap-3 xl:place-self-end place-self-center place-items-center text-xl">
+        <h2>Listening</h2>
+        <ScaleLoader color="white" height={20} width={2} className="self-end" />
+      </div>
       <div className="flex justify-end gap-5 flex-col md:flex-row border-0 border-gray-200 dark:border-gray-800">
         <div>
           <div

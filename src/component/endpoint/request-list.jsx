@@ -40,6 +40,10 @@ function RequestList() {
     navigate(`/${req.endpoint_hash}/${req.request_hash}`);
   };
 
+  const formatDate = (date) => {
+    return new Date(date).toISOString().replace("T", " | ").slice(0, -5);
+  };
+
   return (
     <ul className="list-none p-0 max-h-full">
       {requestList.length < 1 ? (
@@ -58,7 +62,7 @@ function RequestList() {
                 </span>{" "}
                 {req.http_path}
               </p>
-              <p>{new Date(req.received_at).toISOString()}</p>
+              <p>{formatDate(req.received_at)}</p>
             </div>
           </li>
         ))
