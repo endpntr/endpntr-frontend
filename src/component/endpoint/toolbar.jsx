@@ -23,7 +23,7 @@ function Toolbar({ endpointHash }) {
       <div className="flex justify-end gap-5 flex-col md:flex-row border-0 border-gray-200 dark:border-gray-800">
         <div>
           <div
-            className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer hover:bg-gray-700"
+            className="p-2 bg-gray-500 inline-block rounded-l-lg cursor-pointer transition ease-out delay-50 hover:bg-gray-700"
             onClick={() => copyToClipboard(endpointURL)}
           >
             <button className="focus:outline-none">Copy</button>

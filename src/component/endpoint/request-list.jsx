@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import RequestService from "../../services/request";
+import Request from "./request";
 
 function RequestList() {
-  const navigate = useNavigate();
-  const { endpointHash } = useParams();
+  const { endpointHash, requestHash } = useParams();
   const [requestList, setRequestList] = useState([]);
 
   useEffect(() => {
@@ -36,35 +36,13 @@ function RequestList() {
     };
   }, [endpointHash]);
 
-  const handleRequestClick = async (req) => {
-    navigate(`/${req.endpoint_hash}/${req.request_hash}`);
-  };
-
-  const formatDate = (date) => {
-    return new Date(date).toISOString().replace("T", " | ").slice(0, -5);
-  };
-
   return (
     <ul className="list-none p-0 max-h-full">
       {requestList.length < 1 ? (
         <p className="text-gray-500">No requests yet!</p>
       ) : (
         requestList.map((req) => (
-          <li
-            onClick={() => handleRequestClick(req)}
-            key={req.request_id}
-            className="bg-gray-700 hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition duration-100"
-          >
-            <div className="flex flex-1 justify-between">
-              <p>
-                <span className="text-purple-400 font-bold">
-                  {req.http_method}
-                </span>{" "}
-                {req.http_path}
-              </p>
-              <p>{formatDate(req.received_at)}</p>
-            </div>
-          </li>
+          <Request key={req.request_id} req={req} requestHash={requestHash} />
         ))
       )}
     </ul>
