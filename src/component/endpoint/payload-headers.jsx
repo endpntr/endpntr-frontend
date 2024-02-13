@@ -11,7 +11,7 @@ function PayloadHeaders({ headers }) {
 
   return (
     <>
-      <h2 className="text-l pb-3">Request Headers:</h2>
+      <h2 className="text-l mb-3">Request Headers:</h2>
       <div className="flex-wrap bg-gray-700 border border-gray-500 p-2 mb-4 shadow-xl">
         <dl className="w-1/2 my-1">
           {currHeaders.map((header) => {
