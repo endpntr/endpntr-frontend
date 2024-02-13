@@ -4,7 +4,7 @@ import "react-json-pretty/themes/acai.css";
 function PayloadBody({ body }) {
   return (
     <>
-      <h2 className="mb-3 text-l">Request Body:</h2>
+      <h2 className="mb-3 font-semibold text-l">Request Body:</h2>
       <div id="body" className="border border-gray-500 rounded-md shadow-2xl">
         <JSONPretty
           id="Json-pretty"
