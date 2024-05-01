@@ -25,7 +25,7 @@ export default function Request({ req, requestHash }) {
     <li
       onClick={() => handleRequestClick(req)}
       key={req.request_id}
-      className={`${selected ? "bg-gray-900" : "bg-gray-700"} hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition ease-out delay-50`}
+      className={`${selected ? "bg-gray-300 dark:bg-gray-900" : "dark:bg-gray-600"} hover:bg-gray-300 dark:hover:bg-gray-900 cursor-pointer p-2 my-2 rounded transition ease-out delay-50`}
     >
       <div className="flex flex-1 justify-between">
         <p>

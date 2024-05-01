@@ -41,9 +41,11 @@ function RequestList() {
       {requestList.length < 1 ? (
         <p className="text-gray-500 active:bg-black">No requests yet!</p>
       ) : (
-        requestList.map((req) => (
-          <Request key={req.request_id} req={req} requestHash={requestHash} />
-        ))
+        requestList
+          .map((req) => (
+            <Request key={req.request_id} req={req} requestHash={requestHash} />
+          ))
+          .reverse()
       )}
     </ul>
   );

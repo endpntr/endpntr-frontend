@@ -9,7 +9,7 @@ function PayloadBody({ body }) {
         <JSONPretty
           id="Json-pretty"
           data={body}
-          mainStyle="background:rgb(17, 24, 39, 0.85); padding:1rem; border-radius: 0.5rem"
+          mainStyle="background:rgb(50 60 76); padding:1rem; border-radius: 0.5rem"
           keyStyle="color:rgb(192, 132, 252)"
           valueStyle="color:rgb(200, 200, 200)"
           booleanStyle="color:rgb(100, 150, 150)"

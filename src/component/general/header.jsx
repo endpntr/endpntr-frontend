@@ -15,7 +15,7 @@ function Header() {
         <nav>
           <Link
             className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-            to="https://github.com/LSCS2401-08/endpntr"
+            to="https://github.com/endpntr/endpntr"
             target="_blank"
           >
             Github

@@ -12,7 +12,7 @@ function PayloadHeaders({ headers }) {
   return (
     <>
       <h2 className="text-l mb-3 font-semibold">Request Headers:</h2>
-      <div className="flex-wrap bg-gray-700 border border-gray-500 p-2 mb-4 shadow-xl">
+      <div className="flex-wrap dark:bg-gray-700 border border-gray-500 p-2 mb-4 shadow-xl">
         <dl className="w-1/2 my-1">
           {currHeaders.map((header) => {
             return (
@@ -27,7 +27,7 @@ function PayloadHeaders({ headers }) {
           })}
         </dl>
         <button
-          className="focus:outline-none p-1 rounded-md text-gray-500 transition ease-in delay-50 hover:text-white"
+          className="focus:outline-none p-1 rounded-md text-gray-500 transition ease-in delay-50 hover:bg-gray-300 dark:hover:text-white"
           onClick={toggleHeaders}
         >
           {headers === currHeaders ? "Collapse" : "Expand"}
